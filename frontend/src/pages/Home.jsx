@@ -1,11 +1,11 @@
 import React from 'react';
+import Hero from '../components/Hero';
 
-function Home() {
+export default function Home() {
 
   return (
-    <div className="min-h-screen bg-stone-100">
-    </div>
+    <main className="min-h-screen bg-stone-100">
+      <Hero />
+    </main>
   );
 };
-
-export default Home;
