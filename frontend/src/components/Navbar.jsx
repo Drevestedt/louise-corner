@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-function Navbar() {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between bg-amber-900 px-8 py-4">
-      <h1 className="text-3xl text-stone-100 hover:text-red-300"><Link to="/">Louise´s Corner</Link></h1>
+    <nav className="fixed w-full z-50 flex items-center justify-between bg-amber-900 px-8 py-4">
+      <h1 className="font-playfair text-3xl text-stone-100 hover:text-red-300"><Link to="/">Louise´s Corner</Link></h1> 
+      {/* TODO: Continue setting up Google fonts */}
 
       {/* Hamburger icon for mobile */}
       <button className="md:hidden text-stone-100 hover:text-red-300"
@@ -41,4 +42,3 @@ function Navbar() {
     </nav>
   )
 }
-export default Navbar;
