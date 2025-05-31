@@ -8,8 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed w-full z-50 flex items-center justify-between bg-amber-900 px-8 py-4">
-      <h1 className="font-playfair text-3xl text-stone-100 hover:text-red-300"><Link to="/">Louise´s Corner</Link></h1> 
-      {/* TODO: Continue setting up Google fonts */}
+      <h1 className="font-[Playfair] text-4xl text-stone-100 hover:text-red-300"><Link to="/">Louise´s Corner</Link></h1> 
 
       {/* Hamburger icon for mobile */}
       <button className="md:hidden text-stone-100 hover:text-red-300"
@@ -19,7 +18,7 @@ export default function Navbar() {
       </button>
 
       {/* Desktop menu */}
-      <ul className="hidden md:flex gap-4 text-lg text-stone-100">
+      <ul className="hidden md:flex gap-4 font-[Playfair] text-xl text-stone-100">
         <li className="hover:text-red-300"><Link to="/">Home</Link></li>
         <li className="hover:text-red-300"><Link to="/menu">Menu</Link></li>
         <li className="hover:text-red-300"><Link to="/bookTable">Book Table</Link></li>
