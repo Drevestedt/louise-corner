@@ -1,5 +1,6 @@
 import React from "react";
 import heroImage from "../assets/hero.png";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
 
@@ -12,12 +13,12 @@ export default function Hero() {
       <p className="relative font-[Playfair] text-orange-400 text-3xl mt-8">Where grilled perfection meets rustic charm</p>
 
       <div className="relative flex mt-12 gap-12">
-        <button className="bg-amber-900 text-amber-400 font-[Playfair] text-2xl px-6 py-3 rounded-lg border-2 border-amber-600">
+        <Link to="#" className="bg-amber-900 hover:bg-amber-800 text-amber-400 hover:text-amber-300 hover:shadow-lg font-[Playfair] text-2xl px-6 py-3 rounded-lg border-2 border-amber-600">
           See Menu
-        </button>
-        <button className="bg-amber-900 text-amber-400 font-[Playfair] text-2xl px-6 py-3 rounded-lg border-2 border-amber-600">
+        </Link>
+        <Link to="#" className="bg-amber-900 hover:bg-amber-800 text-amber-400 hover:text-amber-300 hover:shadow-lg font-[Playfair] text-2xl px-6 py-3 rounded-lg border-2 border-amber-600">
           Book a Table
-        </button>
+        </Link>
       </div>
     </section>
   )
