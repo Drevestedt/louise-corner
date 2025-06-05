@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Booking() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    date: "",
+    time: "",
+    guests: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value}));
+  }
 
   return (
     <section className="pt-24 bg-gradient-to-b from-amber-100 via-amber-200 to-amber-50 min-h-screen font-[Playfair]">
