@@ -23,6 +23,7 @@ connectDB().then(database => {
       res.status(500).json({ error: "Database error." });
     }
   });
+
   app.listen(3001, () => {
     console.log("Server is running on: http://localhost:3001");
   });

@@ -19,7 +19,7 @@ export default function Booking() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("<http://localhost:3001/api/bookings>", {
+      const response = await fetch("http://localhost:3001/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
@@ -64,7 +64,7 @@ export default function Booking() {
             id="email"
             name="email"
             type="email"
-            value={formData.name}
+            value={formData.email}
             onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
@@ -77,7 +77,7 @@ export default function Booking() {
             id="date"
             name="date"
             type="date"
-            value={formData.name}
+            value={formData.date}
             onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
@@ -90,7 +90,7 @@ export default function Booking() {
             id="time"
             name="time"
             type="time"
-            value={formData.name}
+            value={formData.time}
             onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
@@ -104,7 +104,7 @@ export default function Booking() {
             name="guests"
             type="number"
             min="1"
-            value={formData.name}
+            value={formData.guests}
             onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
