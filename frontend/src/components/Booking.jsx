@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function Booking() {
 
+  //Send form input to backend
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,17 +16,42 @@ export default function Booking() {
     setFormData(prev => ({ ...prev, [name]: value}));
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("<http://localhost:3001/api/bookings>", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Booking successfull.");
+        setFormData({ name: "", email: "", date: "", time: "", guests: "" });
+      } else {
+        alert("Booking failed.", data.error);
+      }
+    }
+    catch (err) {
+      alert("Server error.");
+    }
+  }
+
   return (
     <section className="pt-24 bg-gradient-to-b from-amber-100 via-amber-200 to-amber-50 min-h-screen font-[Playfair]">
       <h1 className="text-5xl text-amber-700 text-center">Book a Table</h1>
 
-      <form className="max-w-xl mx-auto mt-6 p-6 bg-white rounded-lg shadow-lg space-y-6">
+      <form onSubmit={handleSubmit} className="max-w-xl mx-auto mt-6 p-6 bg-white rounded-lg shadow-lg space-y-6">
         <div>
           <label className="text-amber-700 text-xl" htmlFor="name">Name:</label>
           <input
             id="name"
             name="name"
             type="text"
+            value={formData.name}
+            onChange={handleChange} {/*#TODO: Keep adding these to remaining inputs */}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
           />     
