@@ -16,7 +16,7 @@ export default function Booking() {
     setFormData(prev => ({ ...prev, [name]: value}));
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch("<http://localhost:3001/api/bookings>", {
@@ -36,6 +36,7 @@ export default function Booking() {
     }
     catch (err) {
       alert("Server error.");
+      console.error(err);
     }
   }
 
@@ -51,7 +52,7 @@ export default function Booking() {
             name="name"
             type="text"
             value={formData.name}
-            onChange={handleChange} {/*#TODO: Keep adding these to remaining inputs */}
+            onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
           />     
@@ -63,6 +64,8 @@ export default function Booking() {
             id="email"
             name="email"
             type="email"
+            value={formData.name}
+            onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
           />
@@ -74,6 +77,8 @@ export default function Booking() {
             id="date"
             name="date"
             type="date"
+            value={formData.name}
+            onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
           />
@@ -85,6 +90,8 @@ export default function Booking() {
             id="time"
             name="time"
             type="time"
+            value={formData.name}
+            onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
           />
@@ -97,6 +104,8 @@ export default function Booking() {
             name="guests"
             type="number"
             min="1"
+            value={formData.name}
+            onChange={handleChange}
             required
             className="w-full border border-amber-400 rounded px-4 py-2"
           />
