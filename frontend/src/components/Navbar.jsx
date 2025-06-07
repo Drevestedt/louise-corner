@@ -21,7 +21,7 @@ export default function Navbar() {
       <ul className="hidden md:flex gap-4 font-[Playfair] text-xl text-stone-100">
         <li className="hover:text-red-300"><Link to="/">Home</Link></li>
         <li className="hover:text-red-300"><Link to="/menu">Menu</Link></li>
-        <li className="hover:text-red-300"><Link to="/bookTable">Book Table</Link></li>
+        <li className="hover:text-red-300"><Link to="/book-table">Book Table</Link></li>
         <li className="hover:text-red-300"><Link to="/about">About</Link></li>
         <li className="hover:text-red-300"><Link to="/contact">Contact</Link></li>
       </ul>
@@ -33,7 +33,7 @@ export default function Navbar() {
         <ul className="flex flex-col gap-2 text-lg text-stone-100">
           <li className="hover:text-red-300"><Link to="/" onClick={() => setIsMenuOpen(false)} >Home</Link></li>
           <li className="hover:text-red-300"><Link to="/menu" onClick={() => setIsMenuOpen(false)} >Menu</Link></li>
-          <li className="hover:text-red-300"><Link to="/bookTable" onClick={() => setIsMenuOpen(false)} >Book Table</Link></li>
+          <li className="hover:text-red-300"><Link to="/book-table" onClick={() => setIsMenuOpen(false)} >Book Table</Link></li>
           <li className="hover:text-red-300"><Link to="/about" onClick={() => setIsMenuOpen(false)} >About</Link></li>
           <li className="hover:text-red-300 mb-3"><Link to="/contact" onClick={() => setIsMenuOpen(false)} >Contact</Link></li>
         </ul>

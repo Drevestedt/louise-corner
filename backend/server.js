@@ -24,6 +24,15 @@ connectDB().then(database => {
     }
   });
 
+  app.get("/api/bookings", async (req, res) => {
+    try {
+      const bookings = await db.all('SELECT * FROM bookings');
+      res.json(bookings);
+    } catch (err) {
+      res.status(500).json({ error: "Failed to fetch bookings." });
+    }
+  })
+
   app.listen(3001, () => {
     console.log("Server is running on: http://localhost:3001");
   });
