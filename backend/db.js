@@ -1,6 +1,19 @@
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
+import pkg from 'pg';
+import dotenv from 'dotenv';
+dotenv.config();
 
+// For Prod
+const isProd = process.env.NODE_ENV === 'production';
+
+if (isProd) {
+  // Postgresql (Neon)
+  const { pool } = pkg;
+  {/* #TODO: Continue with DB integration */ }
+}
+
+/* For Dev
 // Enable async/await support
 sqlite3.verbose();
 
@@ -21,4 +34,4 @@ export async function connectDB() {
     )
   `);
   return db;
-}
+}*/

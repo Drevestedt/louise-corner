@@ -26,7 +26,7 @@ export default function BookingList() {
         <tbody>
           {bookings.map((booking) => (
             <tr key={booking.id}>
-              <td className="border border-amber-400 px-4 py-2">{booking.name}</td>
+              <td className="border border-amber-400 px-4 py-2">{booking.name}</td> {/* #TODO: Add delete function */}
               <td className="border border-amber-400 px-4 py-2">{booking.email}</td>
               <td className="border border-amber-400 px-4 py-2">{booking.date}</td>
               <td className="border border-amber-400 px-4 py-2">{booking.time}</td>
