@@ -7,13 +7,20 @@ dotenv.config();
 // For Prod
 const isProd = process.env.NODE_ENV === 'production';
 
+let query;
+let connectDB;
+
 if (isProd) {
   // Postgresql (Neon)
-  const { pool } = pkg;
-  {/* #TODO: Continue with DB integration */ }
-}
+  const { Pool } = pkg;
 
-/* For Dev
+  const pool = new pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+  });
+  query = (text, params) => pool.query(text, params);
+} else {
+  /* For Dev #TODO: Continue adding DB for Dev
 // Enable async/await support
 sqlite3.verbose();
 
@@ -35,3 +42,4 @@ export async function connectDB() {
   `);
   return db;
 }*/
+}
