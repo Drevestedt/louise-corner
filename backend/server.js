@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { connectDB } from './db.js';
+import { connectDB, query } from './db.js';
 
 const app = express();
 app.use(cors());
@@ -13,11 +13,19 @@ connectDB().then(database => {
   app.post("/api/bookings", async (req, res) => {
     const { name, email, date, time, guests } = req.body
     try {
-      await db.run(
-        `INSERT INTO bookings (name, email, date, time, guests)
+      if (process.env.NODE_ENV === 'production') {
+        await query(
+          `INSERT INTO bookings (name, email, date, time, guests)
+            VALUES ($1, $2, $3, $4, $5)`,
+          [name, email, date, time, guests]
+        );
+      } else {
+        await db.run(
+          `INSERT INTO bookings (name, email, date, time, guests)
         VALUES (?, ?, ?, ?, ?)`,
-        [name, email, date, time, guests]
-      );
+          [name, email, date, time, guests]
+        );
+      }
       res.status(201).json({ message: "Booking saved successfully." });
     } catch (error) {
       res.status(500).json({ error: "Database error." });

@@ -14,32 +14,35 @@ if (isProd) {
   // Postgresql (Neon)
   const { Pool } = pkg;
 
-  const pool = new pool({
+  const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
   });
   query = (text, params) => pool.query(text, params);
 } else {
-  /* For Dev #TODO: Continue adding DB for Dev
-// Enable async/await support
-sqlite3.verbose();
+  // SQLite for local dev
+  // Enable async/await support
+  sqlite3.verbose();
 
-export async function connectDB() {
-  const db = await open({
-    filename: "./bookings.db",
-    driver: sqlite3.Database
-  })
+  connectDB = async () => {
+    const db = await open({
+      filename: "./bookings.db",
+      driver: sqlite3.Database
+    });
+  }
+
   // Create the bookings table if it doesn't exist
   await db.exec(`
-    CREATE TABLE IF NOT EXISTS bookings (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT NOT NULL,
-      email TEXT NOT NULL,
-      date TEXT NOT NULL,
-      time TEXT NOT NULL,
-      guests INTEGER NOT NULL
-    )
-  `);
+      CREATE TABLE IF NOT EXISTS bookings (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        date TEXT NOT NULL,
+        time TEXT NOT NULL,
+        guests INTEGER NOT NULL
+      )
+    `);
   return db;
-}*/
 }
+
+export { query, connectDB }
