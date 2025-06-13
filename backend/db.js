@@ -29,10 +29,8 @@ if (isProd) {
       filename: "./bookings.db",
       driver: sqlite3.Database
     });
-  }
-
-  // Create the bookings table if it doesn't exist
-  await db.exec(`
+    // Create the bookings table if it doesn't exist
+    await db.exec(`
       CREATE TABLE IF NOT EXISTS bookings (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
@@ -42,7 +40,8 @@ if (isProd) {
         guests INTEGER NOT NULL
       )
     `);
-  return db;
+    return db;
+  };
 }
 
 export { query, connectDB }
