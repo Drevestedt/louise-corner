@@ -8,7 +8,7 @@ dotenv.config();
 const isProd = process.env.NODE_ENV === 'production';
 
 let query = () => { };
-let connectDB = () => { };
+let connectDB = () => Promise.resolve(null);
 
 if (isProd) {
   // Postgresql (Neon)
