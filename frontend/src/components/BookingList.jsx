@@ -4,7 +4,7 @@ export default function BookingList() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/bookings")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/bookings`)
     .then((res) => res.json())
     .then((data) => setBookings(data))
     .catch((err) => console.error("Error fetching bookings:", err))
