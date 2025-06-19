@@ -9,7 +9,7 @@ import Admin from './pages/Admin';
 function App() {
 
   return (
-    <BrowserRouter basename="/louise-corner">
+    <BrowserRouter basename="/louise-corner/">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
