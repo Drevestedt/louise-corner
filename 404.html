@@ -1,2 +1,19 @@
 <!DOCTYPE html>
-<meta http-equiv="refresh" content="0; URL=/louise-corner/" />
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirect</title>
+    <script>
+      //Preserve the current path and query
+      const pathname = location.pathname.replace('/louise-corner', "");
+      const search = location.search || "";
+      const hash = location.hash || "";
+
+      location.replace('/louise-corner/' + pathname + search + hash);
+    </script>
+    <body>
+      Redirecting...
+    </body>
+  </head>
+</html>
