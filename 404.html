@@ -5,12 +5,16 @@
     <meta charset="UTF-8" />
     <title>Redirect</title>
     <script>
-      //Preserve the current path and query
-      const pathname = location.pathname.replace('/louise-corner', "");
+      const current = location.pathname;
+      const base = '/louise-corner';
+
+      if (!current.startsWith(base + '/')) {
+      const pathname = current.replace(base, "");
       const search = location.search || "";
       const hash = location.hash || "";
 
-      location.replace('/louise-corner/' + pathname + search + hash);
+      location.replace(base + pathname + search + hash);
+      }
     </script>
     <body>
       Redirecting...
