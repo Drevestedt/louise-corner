@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports: 
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=${DATABASE_URL}
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+     - "3000:80"
+
+#TODO: Build and run Docker Compose 

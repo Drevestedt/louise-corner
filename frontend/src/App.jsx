@@ -9,7 +9,8 @@ import Admin from './pages/Admin';
 function App() {
 
   return (
-    <BrowserRouter basename="/louise-corner/">
+    /* basename for Docker */
+    <BrowserRouter basename="/"> {/* basename for GH-pages: basename="/louise-corner/" */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

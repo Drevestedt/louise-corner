@@ -4,7 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/louise-corner/',
+  // base for Docker
+  base: '/', // For GH-pages base: '/louise-corner/'
+
   plugins: [
     react(),
     tailwindcss()
