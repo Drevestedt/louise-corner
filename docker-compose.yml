@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   backend:
     build:
@@ -15,5 +13,3 @@ services:
       context: ./frontend
     ports:
      - "3000:80"
-
-#TODO: Build and run Docker Compose 
