@@ -10,7 +10,7 @@ let db;
 
 connectDB().then(database => {
   db = database;
-  app.post("/api/bookings", async (req, res) => {
+  app.post("api/bookings", async (req, res) => {
     const { name, email, date, time, guests } = req.body
     try {
       if (process.env.NODE_ENV === 'production') {
@@ -32,7 +32,7 @@ connectDB().then(database => {
     }
   });
 
-  app.get("/api/bookings", async (req, res) => {
+  app.get("api/bookings", async (req, res) => {
     try {
       let bookings
 
