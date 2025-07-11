@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import { connectDB, query } from './db.js';
+import migrate from 'node-pg-migrate';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 app.use(cors());
@@ -50,6 +53,20 @@ connectDB().then(database => {
   });
 
   const PORT = process.env.PORT || 3001;
+
+  const __filename = fileURLToPath(import.meta.url)
+  const __dirname = path.dirname(__filename)
+
+  const runMigrations = async () => {
+    try {
+      await migrate.default({
+        databaseURL: process.env.DATABASE_URL,
+        dir: path.join(__dirname, 'migrations'),
+        direction: 'up'
+        //TODO: Continue here
+      });
+    }
+  }
 
   app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
